@@ -6,7 +6,7 @@ spec:
     language: flux
     name: network_host
     query: |-
-        import "influxdata/influxdb/v1"
+        import "influxdata/influxdb/v2"
         v1.measurementTagValues(bucket: "network_data", measurement: "net", tag: "host")
     type: query
 ---
@@ -46,7 +46,7 @@ spec:
         queries:
           - query: |-
                 import "system"
-                import "influxdata/influxdb/v1"
+                import "influxdata/influxdb/v2"
                 data = from(bucket: "network_data")
                   |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
                   |> filter(fn: (r) => r._measurement == "net")
@@ -232,7 +232,7 @@ spec:
         queries:
           - query: |-
                 import "system"
-                import "influxdata/influxdb/v1"
+                import "influxdata/influxdb/v2"
                 
                 data =from(bucket: "network_data")
                   |> range(start: v.timeRangeStart, stop:v.timeRangeStop)
@@ -261,7 +261,7 @@ spec:
         queries:
           - query: |-
                 import "system"
-                import "influxdata/influxdb/v1"
+                import "influxdata/influxdb/v2"
                 data = from(bucket: "network_data")
                   |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
                   |> filter(fn: (r) => r._measurement == "net")
@@ -288,7 +288,7 @@ spec:
         queries:
           - query: |-
                 import "system"
-                import "influxdata/influxdb/v1"
+                import "influxdata/influxdb/v2"
                 data = from(bucket: "network_data")
                   |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
                   |> filter(fn: (r) => r._measurement == "net")
